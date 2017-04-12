@@ -1,0 +1,17 @@
+zuul:
+  routes: # routes all traffic from gateway to microservices according to path
+    command-micro:
+      path: /command/**
+      serviceId: poc-command
+    query-micro:
+          path: /query/**
+          serviceId: poc-query
+eureka:
+  client: # register and query on default zone of Discovery Server [Eureka]
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+# below part should be moved to bootstrap.yml in case of deploying to Cloud environment
+# http://stackoverflow.com/questions/32997352/what-is-the-diference-between-putting-a-property-on-application-yml-or-bootstrap
+spring:
+  application:
+    name: poc-gateway

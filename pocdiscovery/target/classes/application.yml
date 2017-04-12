@@ -1,0 +1,15 @@
+server:
+  port: 8761 # standard port for discovery service
+
+eureka:
+  client: # prevent registration into eureka itself
+    registerWithEureka: false
+    fetchRegistry: false
+    server:
+      waitTimeInMsWhenSyncEmpty: 0
+
+# below part should be moved to bootstrap.yml in case of deploying to Cloud environment
+# http://stackoverflow.com/questions/32997352/what-is-the-diference-between-putting-a-property-on-application-yml-or-bootstrap
+spring:
+  application:
+    name: poc-discovery
